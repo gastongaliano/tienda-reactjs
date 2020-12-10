@@ -1,12 +1,20 @@
-function Navigationbar() {
-    return
-        <NavBar>
-            <h1>TiendArt Argentina</h1>
-            <h3>Nuevos ingresos 2021</h3>
-            <p>Obra 1 - $3.000</p>
-            <p>Obra 2 - $4.000</p>
-            <p>Obra 3 - $10.000</p>
-            <p>Obra 4 - $20.000</p>
-            <p>Obra 5 - $40.000</p>          
-        </NavBar>
+import React from "react";
+import CartWidget from './CartWidget'
+
+
+const NavBar = () => {
+    return(
+        <header>
+            <nav className="menuPrincipal">
+                <ul>
+                    <a href="#"><li>Inicio</li></a>
+                    <a href="#"><li>Obras en venta</li></a>
+                    <a href="#"><li>Contactenos</li></a>
+                </ul>
+            </nav>
+            <CartWidget/>
+        </header>
+    );
 }
+
+export default NavBar;
