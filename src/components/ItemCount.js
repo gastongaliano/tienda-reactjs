@@ -8,7 +8,7 @@ const ItemCount = (props) => {
 			setItemQty(itemQty + 1)
 			console.log("agregado")
 		} else {
-			alert("no hay más cuadros papu")
+			alert("no hay más cuadros")
 		}
 	};
 	const onSustract = () => {
