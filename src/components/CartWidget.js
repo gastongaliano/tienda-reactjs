@@ -1,5 +1,5 @@
 import React from "react";
-import { FaShoppingCart } from "@react-icons/all-files/fa/FaShoppingCart";
+import { FaShoppingCart } from "react-icons/fa";
 
 
 const CartWidget = () => {

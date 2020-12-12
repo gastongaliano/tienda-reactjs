@@ -2,7 +2,7 @@ import React from "react";
 import CartWidget from './CartWidget'
 
 
-const NavBar = () => {
+const NavBar = (props) => {
     return(
         <header>
             <nav className="menuPrincipal">
