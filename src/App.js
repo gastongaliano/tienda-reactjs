@@ -1,49 +1,46 @@
-import logo from './logo.svg';
 import './App.css';
-import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
+import getProducts from './services/productService';
+import React, {useState} from 'react';
+import { Grid } from "@material-ui/core";
+import Header from "./components/Header/Header";
 
 function App() {
 
-	const falseProducts = [
-		{
-			id: 1,
-			name: 'Dhali La persistencia de la memoria',
-			stock: 5
-		},
-		{
-			id: 2,
-			name: 'Vangoh La noche estrellada',
-			stock: 3
-		},
-		{
-			id: 2,
-			name: 'Munch El grito',
-			stock: 3
+	const [productList, setProductList] = useState();
+
+	getProducts()
+		.then(data => { 
+			setProductList(data);
+		})
+
+	const addedToCart = [];
+
+	const addToCart = (product) => {
+		if (!addedToCart.some(item => item.id === product.id)){
+			addedToCart.push(product);
+			return;
 		}
-	];
+		addedToCart.forEach(item => { 
+			if (item.id === product.id){
+				item.qty = product.qty;
+			}
+		})
+	};
 
-	const addedToCart = [
-		{
-			id: 1,
-			name: 'Producto 1',
-			added: 5
-		},
-		{
-			id: 2,
-			name: 'Producto 2',
-			added: 5
-		}
-	];
-
-	// const onBuy = (e) => {
-
-	// }
   return (
-    <>
-	    <NavBar productsInCart={addedToCart}/>
-	    <ItemListContainer productList={falseProducts} greeting ="Proximamente abriremos tienda online"/>
-    </>
+    <Grid container direction="column">
+      <Grid item>
+        <Header inCart={addedToCart}/>
+      </Grid>
+      <Grid item container>
+        <Grid item xs={false} sm={2} />
+        <Grid item xs={12} sm={8}>
+          <ItemListContainer onAddToCart={addToCart} productList={productList} greeting ="En breve abrimos"/>
+        </Grid>
+        <Grid item xs={false} sm={2} />
+      </Grid>
+    </Grid>
   );
 }
 

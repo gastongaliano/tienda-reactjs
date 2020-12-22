@@ -1,20 +1,26 @@
-import React from "react";
-import ItemCount from "./ItemCount";
+import { Grid } from "@material-ui/core";
+import ItemCount from "./Counter/ItemCount";
+import Item from "./Item/Item";
 
-const ItemListContainer = (props) => {
+function ItemListContainer(props){
+	
 	return (
-		<section>
-			<h1>{props.greeting}</h1>
-			<ul>
-				{
-					props.productList.map(item => 
-							<>
-								<li key={item.id}>{item.name}. Stock actual: {item.stock}</li>
-								<ItemCount stock={item.stock}/>
-							</>	
-					)}
-			</ul>
-		</section>
+		<Grid container spacing={2}>
+			{
+				!props.productList &&
+				<p>Loading...</p>
+			}
+			{	props.productList &&
+				props.productList.map(item => {
+				return (
+					<Grid item xs={12} sm={4}>
+						<Item item={item} />
+						<ItemCount onAddToCart={props.onAddToCart} item={item}/>
+					</Grid>
+				)
+			})}
+		</Grid>
+
 	);
 }
 
