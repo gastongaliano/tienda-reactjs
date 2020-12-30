@@ -6,8 +6,8 @@ import Typography from "@material-ui/core/Typography";
 import ShareIcon from "@material-ui/icons/Share";
 import { Avatar, IconButton, CardMedia } from "@material-ui/core";
 
-function Item(props) {
-  const { thumbnail, title, subtitle, description, imageUrl, stock } = props.item;
+function ItemDetails(props) {
+  const { thumbnail, title, subtitle, description, imageUrl, stock } = props.location.state;
   return (
     <Card>
       <CardHeader
@@ -35,4 +35,4 @@ function Item(props) {
   );
 }
 
-export default Item;
+export default ItemDetails;
