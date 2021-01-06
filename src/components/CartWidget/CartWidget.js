@@ -4,8 +4,16 @@ import { FaShoppingCart } from "react-icons/fa";
 
 const CartWidget = (props) => {
   const [listDisplay, setListDisplay] = useState(false);
+
+
+  const showCart = (e) => {
+    e.preventDefault();
+    setListDisplay(prevState => !prevState);
+  }
+
   const list = (
     <ul>
+      <li>Carrito:</li>
       {
         props.inCart.map(item => {
           if (item.qty) {
@@ -24,7 +32,7 @@ const CartWidget = (props) => {
 
   return (
     <>
-      <FaShoppingCart style={{ padding: "2 0 0 2" }} onClick={() => setListDisplay(!listDisplay)} className='FaShoppingCart' />
+      <FaShoppingCart style={{ padding: "2 0 0 2" }} onClick={(e) => showCart(e)} className='FaShoppingCart' />
       {listDisplay ? list : false}
     </>
   );

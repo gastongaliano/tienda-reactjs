@@ -38,6 +38,10 @@ const Header = (props) => {
               </ListItem>
             </a>
           ))}
+          <ListItem button>
+              <ListItemText primary={props.extra} />
+              <span class="MuiTouchRipple-root"></span>
+          </ListItem>
         </List>
       </Toolbar>
     </AppBar>
