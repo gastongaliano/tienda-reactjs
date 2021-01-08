@@ -23,7 +23,7 @@ const Header = (props) => {
   return (
     <AppBar position="static" className={classes.appBar}>
       <Toolbar>
-        <IconButton edge="start" color="inherit" aria-label="home" onClick={props.getHome}>
+        <IconButton edge="start" color="inherit" aria-label="home" onClick={props.headerIcon}>
           <Home fontSize="large" />
         </IconButton>
         <List
@@ -37,11 +37,18 @@ const Header = (props) => {
                 <ListItemText primary={title} />
               </ListItem>
             </a>
-          ))}
-          <ListItem button>
-              <ListItemText primary={props.extra} />
-              <span class="MuiTouchRipple-root"></span>
-          </ListItem>
+          ))
+          }
+          {
+            props.extra && 
+            <a href={'/'} key={'TERMINAR COMPRA'} className={classes.linkText} onClick={props.headerIcon}>
+              <ListItem button>
+                <ListItemText primary={'TERMINAR COMPRA'} />
+              </ListItem>
+            </a>
+          }
+
+          
         </List>
       </Toolbar>
     </AppBar>

@@ -27,19 +27,19 @@ function App() {
     <>
       <Grid container direction="column" >
         <Grid item>
-          <Header navLinks={navLinks} getHome={(e) => handleClick(e, 'home')} />
+          <Header navLinks={navLinks} headerIcon={(e) => handleClick(e, 'home')} />
         </Grid>
         <Grid item>
           
         </Grid>
       </Grid>
       <Switch>
-        <Route exact path="/obras/category/:id" component={ItemDetails} />
+        <Route exact path="/obras/:category/:id" component={ItemDetails} />
         <Route exact path="/" component={Home} />
         <Route exact path="/home" component={Home} />
         <Route exact path="/obras" component={Product} />
         <Route 
-          exact path="/obras/carrito" 
+          exact path="/obras/cart" 
           render={ props => (
             <Product> 
               <CartList {...props}/>

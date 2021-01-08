@@ -42,9 +42,9 @@ const Product = (props) => {
     { component: 'Cubismo', title: 'Cubismo', path: `/credits`, handleClick: (e) => handleCategory(e, 'Cubismo') },
   ];
 
-  const renderCart = () => {
-    const cartPath = '/obras/carrito'; 
-    console.log('En renderCart!', history.location.pathname);
+  const renderCart = (e) => {
+    e.preventDefault();
+    const cartPath = '/obras/cart'; 
     if (history.location.pathname !== cartPath){
       console.log('location', history.location.pathname);
       history.push({
@@ -61,7 +61,7 @@ const Product = (props) => {
     <Grid item container>
       <Header 
         navLinks={categories} 
-        getHome={()=>{}} 
+        headerIcon={renderCart} 
         extra={<CartWidget2 renderCart={renderCart}/>}
       />
       <Grid item xs={false} sm={2} />

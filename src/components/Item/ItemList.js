@@ -6,7 +6,7 @@ const ItemList = ({ onAddToCart, item }) => {
   return (
     <>
       <Link to={{
-          pathname:"/obras/category/2",
+          pathname:`/obras/${item.category}/${item.id}`,
           state: {...item}
         }}> <Item item={item} /> </Link>
       <ItemCount onAddToCart={onAddToCart} item={item} />
