@@ -7,7 +7,7 @@ import ShareIcon from "@material-ui/icons/Share";
 import { Avatar, IconButton, CardMedia } from "@material-ui/core";
 
 function ItemDetails(props) {
-  const { thumbnail, title, subtitle, description, imageUrl, stock } = props.location.state;
+  const { thumbnail, title, subtitle, description, imageUrl, stock, price } = props.location.state;
   return (
     <Card>
       <CardHeader
@@ -29,6 +29,9 @@ function ItemDetails(props) {
       <CardContent>
         <Typography variant="subtitle2" gutterBottom>
           STOCK {stock}
+        </Typography>
+        <Typography variant="subtitle2" gutterBottom>
+          PRICE {price}
         </Typography>
       </CardContent>
     </Card>

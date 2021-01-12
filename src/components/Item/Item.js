@@ -4,10 +4,10 @@ import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import ShareIcon from "@material-ui/icons/Share";
-import { Avatar, IconButton, CardMedia } from "@material-ui/core";
+import { Avatar, IconButton, CardMedia} from "@material-ui/core";
 
-function Item(props) {
-  const { thumbnail, title, subtitle, description, imageUrl, stock } = props.item;
+function Item({item}) {
+  const { thumbnail, title, subtitle, imageUrl, stock } = item;
   return (
     <Card>
       <CardHeader
@@ -20,12 +20,7 @@ function Item(props) {
         title={title}
         subheader={subtitle}
       />
-      <CardMedia style={{ height: "150px" }} image={imageUrl} />
-      <CardContent>
-        <Typography variant="body2" component="p">
-          {description}
-        </Typography>
-      </CardContent>
+        <CardMedia style={{ height: "150px" }} image={imageUrl} />
       <CardContent>
         <Typography variant="subtitle2" gutterBottom>
           STOCK {stock}

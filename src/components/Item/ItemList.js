@@ -2,14 +2,20 @@ import React from "react";
 import Item from "./Item";
 import ItemCount from "../Counter/ItemCount";
 import { Link } from 'react-router-dom';
-const ItemList = ({ onAddToCart, item }) => {
+
+
+const ItemList = ({ item }) => {
   return (
     <>
-      <Link to={{
+      <Link
+        to={{
           pathname:`/obras/${item.category}/${item.id}`,
           state: {...item}
-        }}> <Item item={item} /> </Link>
-      <ItemCount onAddToCart={onAddToCart} item={item} />
+        }}
+      >
+        <Item item={item}/>
+      </Link>
+      <ItemCount item={item} />
     </>
   );
 }

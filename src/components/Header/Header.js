@@ -18,12 +18,12 @@ const useStyles = makeStyles({
   }
 });
 
-const Header = (props) => {
+const Header = ({navLinks = [], headerIcon, extra}) => {
   const classes = useStyles();
   return (
     <AppBar position="static" className={classes.appBar}>
       <Toolbar>
-        <IconButton edge="start" color="inherit" aria-label="home" onClick={props.headerIcon}>
+        <IconButton edge="start" color="inherit" aria-label="home" onClick={headerIcon}>
           <Home fontSize="large" />
         </IconButton>
         <List
@@ -31,7 +31,7 @@ const Header = (props) => {
           aria-labelledby="main navigation"
           className={classes.navDisplayFlex}
         >
-          {props.navLinks.map(({ title, path, handleClick }) => (
+          {navLinks.map(({ title, path, handleClick }) => (
             <a href={path} key={title} className={classes.linkText} onClick={handleClick}>
               <ListItem button>
                 <ListItemText primary={title} />
@@ -40,8 +40,8 @@ const Header = (props) => {
           ))
           }
           {
-            props.extra && 
-            <a href={'/'} key={'TERMINAR COMPRA'} className={classes.linkText} onClick={props.headerIcon}>
+            extra && 
+            <a href={'/'} key={'TERMINAR COMPRA'} className={classes.linkText} onClick={headerIcon}>
               <ListItem button>
                 <ListItemText primary={'TERMINAR COMPRA'} />
               </ListItem>
