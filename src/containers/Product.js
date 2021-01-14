@@ -11,7 +11,6 @@ const Product = ({categories, renderCart, productList, setProductList, children}
     if (!children) {
       getProducts()
       .then(data => {
-        console.log(data);
         setProductList(data);
       })
     }
