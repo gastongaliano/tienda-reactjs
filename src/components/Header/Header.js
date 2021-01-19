@@ -2,6 +2,7 @@ import React from "react";
 import { Home } from "@material-ui/icons";
 import { AppBar, Toolbar, IconButton, List, ListItem, ListItemText } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
+import CartWidget2 from "../CartWidget/CartWidget2";
 
 const useStyles = makeStyles({
   navDisplayFlex: {
@@ -18,7 +19,7 @@ const useStyles = makeStyles({
   }
 });
 
-const Header = ({navLinks = [], headerIcon, extra}) => {
+const Header = ({navLinks = [], headerIcon, extra, cartLength}) => {
   const classes = useStyles();
   return (
     <AppBar position="static" className={classes.appBar}>
@@ -40,15 +41,15 @@ const Header = ({navLinks = [], headerIcon, extra}) => {
           ))
           }
           {
-            extra && 
-            <a href={'/'} key={'TERMINAR COMPRA'} className={classes.linkText} onClick={headerIcon}>
+            extra &&
+            <a href={"/obras/cart"} key={"renderCart"} className={classes.linkText} onClick={(e) => headerIcon(e)}>
               <ListItem button>
-                <ListItemText primary={'TERMINAR COMPRA'} />
+                <CartWidget2 renderCart={headerIcon}/>
+                <ListItemText primary={cartLength} />
               </ListItem>
             </a>
           }
 
-          
         </List>
       </Toolbar>
     </AppBar>

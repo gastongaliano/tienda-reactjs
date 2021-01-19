@@ -7,7 +7,7 @@ import ShareIcon from "@material-ui/icons/Share";
 import { Avatar, IconButton, CardMedia} from "@material-ui/core";
 
 function Item({item}) {
-  const { thumbnail, title, subtitle, imageUrl, stock } = item;
+  const { thumbnail, title, subtitle, image, stock } = item;
   return (
     <Card>
       <CardHeader
@@ -20,7 +20,7 @@ function Item({item}) {
         title={title}
         subheader={subtitle}
       />
-        <CardMedia style={{ height: "150px" }} image={imageUrl} />
+        <CardMedia style={{ height: "150px" }} image={image} />
       <CardContent>
         <Typography variant="subtitle2" gutterBottom>
           STOCK {stock}

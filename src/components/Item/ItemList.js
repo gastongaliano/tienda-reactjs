@@ -9,13 +9,12 @@ const ItemList = ({ item }) => {
     <>
       <Link
         to={{
-          pathname:`/obras/${item.category}/${item.id}`,
+          pathname:`/obras/category/${item.category}/item/${item.id}`,
           state: {...item}
         }}
       >
         <Item item={item}/>
       </Link>
-      <ItemCount item={item} />
     </>
   );
 }
